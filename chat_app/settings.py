@@ -27,7 +27,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '157.230.115.197']
 
 
 # Application definition
@@ -87,12 +87,14 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config(
-            'DATABASE_URL',
-            default="sqlite:///" + os.path.join(BASE_DIR, 'db.sqlite3')
-        )
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': '44f31a84a15520583ac95020cf4a7bfe',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
 
 
